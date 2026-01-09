@@ -34,7 +34,7 @@
 
                 <div class="menu-right">
                     <a href="#">
-                        <img src="https://i.pravatar.cc/150?img=12" class="rounded-full">
+                        <img src="https://i.pravatar.cc/150?img=12" class="rounded-full w-24">
                     </a>
                 </div>
             </div>
