@@ -29,7 +29,7 @@
             <div class="p-4 bg-white border border-gray-200 rounded-lg">
                 <div class="mb-6 flex items-center justify-between">
                     <div class="flex items-center space-x-6">
-                        <img src="https://i.pravatar.cc/150?img=12" class="w-[40px] rounded-full">
+                        <img src="https://i.pravatar.cc/150?img=12" class="w-10 rounded-full">
 
                         <p><strong>José Rodrigues</strong></p>
                     </div>
@@ -69,7 +69,7 @@
             <div class="p-4 bg-white border border-gray-200 rounded-lg">
                 <div class="mb-6 flex items-center justify-between">
                     <div class="flex items-center space-x-6">
-                        <img src="https://i.pravatar.cc/150?img=12" class="w-[40px] rounded-full">
+                        <img src="https://i.pravatar.cc/150?img=12" class="w-10 rounded-full">
 
                         <p><strong>José Rodrigues</strong></p>
                     </div>
@@ -108,92 +108,22 @@
         </div>
 
         <div class="main-right col-span-1 space-y-4">
-            <div class="p-4 bg-white border border-gray-200 rounded-lg">
-                <h3 class="mb-6 text-xl">Pessoas que talvez você conheça</h3>
+            <PeopleYouMayKnow />
 
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-2">
-                            <img src="https://i.pravatar.cc/150?img=12" class="w-[40px] rounded-full">
-
-                            <p class="text-xs"><strong>José Rodrigues</strong></p>
-                        </div>
-
-                        <a href="#" class="py-2 px-2 bg-blue-600 text-white text-xs rounded-lg">Mostrar</a>
-                    </div>
-
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-2">
-                            <img src="https://i.pravatar.cc/150?img=12" class="w-[40px] rounded-full">
-
-                            <p class="text-xs"><strong>José Rodrigues</strong></p>
-                        </div>
-
-                        <a href="#" class="py-2 px-2 bg-blue-600 text-white text-xs rounded-lg">Mostrar</a>
-                    </div>
-
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-2">
-                            <img src="https://i.pravatar.cc/150?img=12" class="w-[40px] rounded-full">
-
-                            <p class="text-xs"><strong>José Rodrigues</strong></p>
-                        </div>
-
-                        <a href="#" class="py-2 px-2 bg-blue-600 text-white text-xs rounded-lg">Mostrar</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-4 bg-white border border-gray-200 rounded-lg">
-                <h3 class="mb-6 text-xl">Tendências</h3>
-
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <p class="text-xs">
-                            <strong>#joserodrigues</strong><br>
-                            <span class="text-gray-500">180 postagens</span>
-                        </p>
-                        
-                        <a href="#" class="py-2 px-2 bg-blue-600 text-white text-xs rounded-lg">Explorar</a>
-                    </div>
-                    
-                    <div class="flex items-center justify-between">
-                        <p class="text-xs">
-                            <strong>#joserodrigues</strong><br>
-                            <span class="text-gray-500">180 postagens</span>
-                        </p>
-                        
-                        <a href="#" class="py-2 px-2 bg-blue-600 text-white text-xs rounded-lg">Explorar</a>
-                    </div>
-
-                    <div class="flex items-center justify-between">
-                        <p class="text-xs">
-                            <strong>#joserodrigues</strong><br>
-                            <span class="text-gray-500">180 postagens</span>
-                        </p>
-                        
-                        <a href="#" class="py-2 px-2 bg-blue-600 text-white text-xs rounded-lg">Explorar</a>
-                    </div>
-
-                    <div class="flex items-center justify-between">
-                        <p class="text-xs">
-                            <strong>#joserodrigues</strong><br>
-                            <span class="text-gray-500">180 postagens</span>
-                        </p>
-                        
-                        <a href="#" class="py-2 px-2 bg-blue-600 text-white text-xs rounded-lg">Explorar</a>
-                    </div>
-
-                    <div class="flex items-center justify-between">
-                        <p class="text-xs">
-                            <strong>#joserodrigues</strong><br>
-                            <span class="text-gray-500">180 postagens</span>
-                        </p>
-                        
-                        <a href="#" class="py-2 px-2 bg-blue-600 text-white text-xs rounded-lg">Explorar</a>
-                    </div>
-                </div>
-            </div>
+            <Trends />
         </div>
     </div>
 </template>
+
+<script>
+import PeopleYouMayKnow from '../components/PeopleYouMayKnow.vue';
+import Trends from '../components/Trends.vue'
+
+export default {
+    name: 'FeedView',
+    components: {
+        PeopleYouMayKnow,
+        Trends,
+    }
+}
+</script>

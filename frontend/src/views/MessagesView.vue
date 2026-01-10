@@ -5,7 +5,7 @@
                 <div class="space-y-4">
                     <div class="flex items-center justify-between text-center">
                         <div class="flex items-center space-x-2">
-                            <img src="https://i.pravatar.cc/150?img=12" class="w-[40px] rounded-full">
+                            <img src="https://i.pravatar.cc/150?img=12" class="w-10 rounded-full">
 
                             <p class="text-xs"><strong>José Rodrigues</strong></p>
                         </div>
@@ -15,7 +15,7 @@
 
                     <div class="flex items-center justify-between text-center">
                         <div class="flex items-center space-x-2">
-                            <img src="https://i.pravatar.cc/150?img=12" class="w-[40px] rounded-full">
+                            <img src="https://i.pravatar.cc/150?img=12" class="w-10 rounded-full">
 
                             <p class="text-xs"><strong>José Rodrigues</strong></p>
                         </div>
@@ -25,7 +25,7 @@
 
                     <div class="flex items-center justify-between text-center">
                         <div class="flex items-center space-x-2">
-                            <img src="https://i.pravatar.cc/150?img=12" class="w-[40px] rounded-full">
+                            <img src="https://i.pravatar.cc/150?img=12" class="w-10 rounded-full">
 
                             <p class="text-xs"><strong>José Rodrigues</strong></p>
                         </div>
@@ -38,7 +38,7 @@
 
         <div class="main-center col-span-3 space-y-4">
             <div class="bg-white border border-gray-200 rounded-lg">
-                <div class="flex flex-col flex-grow p-4">
+                <div class="flex flex-col grow p-4">
                     <div class="flex w-full mt-2 space-x-3 max-w-md ml-auto justify-end">
                         <div>
                             <div class="bg-green-600 text-white p-3 rounded-l-lg rounded-br-lg">
@@ -46,8 +46,8 @@
                             </div>
                             <span class="text-xs text-gray-500 leading-none">5 min atrás</span>
                         </div>
-                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300">
-                            <img src="https://i.pravatar.cc/150?img=12" class="w-[40px] rounded-full">
+                        <div class="shrink-0 h-10 w-10 rounded-full bg-gray-300">
+                            <img src="https://i.pravatar.cc/150?img=12" class="w-10 rounded-full">
                         </div>
                     </div>
 
@@ -58,14 +58,14 @@
                             </div>
                             <span class="text-xs text-gray-500 leading-none">4 min atrás</span>
                         </div>
-                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300">
-                            <img src="https://i.pravatar.cc/150?img=12" class="w-[40px] rounded-full">
+                        <div class="shrink-0 h-10 w-10 rounded-full bg-gray-300">
+                            <img src="https://i.pravatar.cc/150?img=12" class="w-10 rounded-full">
                         </div>
                     </div>
 
                     <div class="flex w-full mt-2 space-x-3 max-w-md">
-                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300">
-                            <img src="https://i.pravatar.cc/150?img=12" class="w-[40px] rounded-full">
+                        <div class="shrink-0 h-10 w-10 rounded-full bg-gray-300">
+                            <img src="https://i.pravatar.cc/150?img=12" class="w-10 rounded-full">
                         </div>
                         <div>
                             <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
