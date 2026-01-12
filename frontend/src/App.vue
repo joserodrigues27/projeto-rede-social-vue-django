@@ -6,7 +6,7 @@
                     <a href="#" class="text-xl">Thinker</a>
                 </div>
 
-                <div class="menu-center flex space-x-12">
+                <div class="menu-center flex space-x-12" v-if="userStore.user.isAuthenticated">
                     <a href="#" class="text-blue-700">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
@@ -33,9 +33,16 @@
                 </div>
 
                 <div class="menu-right">
-                    <a href="#">
-                        <img src="https://i.pravatar.cc/150?img=12" class="rounded-full w-24">
-                    </a>
+                    <template v-if="userStore.user.isAuthenticated">
+                        <a href="#">
+                            <img src="https://i.pravatar.cc/150?img=12" class="rounded-full w-24">
+                        </a>
+                    </template>
+
+                    <template v-else>
+                        <RouterLink to="/login" class="mr-4 py-4 px-6 bg-gray-600 text-white rounded-lg">Entrar</RouterLink>
+                        <RouterLink to="/signup" class="py-4 px-6 bg-blue-600 text-white rounded-lg">Criar conta</RouterLink>
+                    </template>
                 </div>
             </div>
         </div>
@@ -50,10 +57,32 @@
 
 <script>
     import Toast from '@/components/Toast.vue'
+    import { useUserStore } from '@/stores/user'
+    import axios from 'axios'
 
     export default {
+        setup() {
+            const userStore = useUserStore()
+
+            return {
+                userStore
+            }
+        },
+
         components: {
             Toast
+        },
+
+        beforeCreate() {
+            this.userStore.initStore()
+
+            const token = this.userStore.user.access
+
+            if (token) {
+                axios.defaults.headers.common["Authorization"] = "Bearer " + token
+            } else {
+                axios.defaults.headers.common["Authorization"] = ""
+            }
         }
     }
 </script>

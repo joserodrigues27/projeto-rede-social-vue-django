@@ -24,14 +24,10 @@ export const useUserStore = defineStore('user', {
                 this.user.isAuthenticated = true
 
                 this.refreshToken()
-
-                console.log('Usuário inicializado:', this.user)
             }
         },
 
         setToken(data) {
-            console.log('setToken', data)
-
             this.user.access = data.access
             this.user.refresh = data.refresh
             this.user.isAuthenticated = true
@@ -41,25 +37,21 @@ export const useUserStore = defineStore('user', {
         },
 
         removeToken() {
-            console.log('removeToken')
-
             this.user.refresh = null
             this.user.access = null
             this.user.isAuthenticated = false
-            this.user.id = false
-            this.user.name = false
-            this.user.email = false
+            this.user.id = null
+            this.user.name = null
+            this.user.email = null
 
-            localStorage.setItem('user.access', '')
-            localStorage.setItem('user.refresh', '')
-            localStorage.setItem('user.id', '')
-            localStorage.setItem('user.name', '')
-            localStorage.setItem('user.email', '')
+            localStorage.removeItem('user.access')
+            localStorage.removeItem('user.refresh')
+            localStorage.removeItem('user.id')
+            localStorage.removeItem('user.name')
+            localStorage.removeItem('user.email')
         },
 
         setUserInfo(user) {
-            console.log('setUserInfo', user)
-
             this.user.id = user.id
             this.user.name = user.name
             this.user.email = user.email
@@ -67,12 +59,10 @@ export const useUserStore = defineStore('user', {
             localStorage.setItem('user.id', this.user.id)
             localStorage.setItem('user.name', this.user.name)
             localStorage.setItem('user.email', this.user.email)
-
-            console.log('Usuário', this.user)
         },
 
         refreshToken() {
-            axios.post('/api/account/refresh', {
+            axios.post('/api/refresh/', {
                 refresh: this.user.refresh
             })
                 .then((response) => {
