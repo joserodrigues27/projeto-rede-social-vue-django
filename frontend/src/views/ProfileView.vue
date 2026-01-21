@@ -2,13 +2,31 @@
     <div class="max-w-7xl mx-auto grid grid-cols-4 gap-4">
         <div class="main-left col-span-1">
             <div class="p-4 bg-white border border-gray-200 place-items-center rounded-lg">
-                <img src="https://i.pravatar.cc/150?img=12" class="mb-6 rounded-full">
+                <img src="https://i.pravatar.cc/200?img=12" class="mb-6 rounded-full">
 
                 <p><strong>{{ user.name }}</strong></p>
 
                 <div class="mt-6 flex space-x-8 text-center justify-around">
-                    <p class="text-xs text-gray-500">175 amigos</p>
+                    <RouterLink :to="{name: 'friends', params: {id: user.id}}" class="text-xs text-gray-500">{{ user.friends_count }} amigos</RouterLink>
                     <p class="text-xs text-gray-500">130 postagens</p>
+                </div>
+
+                <div class="mt-6">
+                    <button
+                        class="inline-block p-3 bg-blue-600 text-xs text-white rounded-lg"
+                        @click="sendFriendshipRequest"
+                        v-if="userStore.user.id !== user.id"
+                    >
+                        Enviar solicitação de amizade
+                    </button>
+
+                    <button
+                        class="inline-block p-3 bg-red-600 text-xs text-white rounded-lg"
+                        @click="logout"
+                        v-else
+                    >
+                        Sair
+                    </button>
                 </div>
             </div>
         </div>
@@ -54,16 +72,18 @@
     import Trends from '@/components/Trends.vue'
     import FeedItem from '@/components/FeedItem.vue';
     import { useUserStore } from '@/stores/user'
-
+    import { useToastStore } from '@/stores/toast'
 
     export default {
-        name: 'FeedView',
+        name: 'ProfileView',
 
         setup() {
             const userStore = useUserStore()
+            const toastStore = useToastStore()
 
             return {
-                userStore
+                userStore,
+                toastStore
             }
         },
 
@@ -83,17 +103,34 @@
 
         watch: {
             "$route.params.id": {
-                handler(id) {
-                    this.getFeed(id)
+                handler() {
+                    this.getFeed()
                 },
                 immediate: true
             }
         },
 
         methods: {
-            getFeed(id) {
+            sendFriendshipRequest() {
                 axios
-                    .get(`/api/posts/profile/${id}/`)
+                    .post(`/api/friends/${this.$route.params.id}/request/`)
+                    .then(response => {
+                        if (response.data.message == 'solicitação já enviada') {
+                            this.toastStore.showToast(5000, 'A solicitação já foi enviada!', 'bg-red-500')
+                        } else if (response.data.message == 'solicitação já rejeitada') {
+                            this.toastStore.showToast(5000, 'A solicitação já foi rejeitada!', 'bg-red-500')
+                        } else {
+                            this.toastStore.showToast(5000, 'A solicitação foi enviada!', 'bg-emerald-500')
+                        }
+                    })
+                    .catch(error => {
+                        console.log('error', error)
+                    })
+            },
+
+            getFeed() {
+                axios
+                    .get(`/api/posts/profile/${this.$route.params.id}/`)
                     .then(response => {
                         this.posts = response.data.posts
                         this.user = response.data.user
@@ -115,6 +152,11 @@
                     .catch(error => {
                         console.log('error', error)
                     })
+            },
+
+            logout() {
+                this.userStore.removeToken()
+                this.$router.push('/login')
             }
         }
     }

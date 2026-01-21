@@ -65,6 +65,7 @@
                 errors: []
             }
         },
+
         methods: {
             async submitForm() {
                 this.errors = []
@@ -76,6 +77,7 @@
                 if (this.form.password === '') {
                     this.errors.push("Sua senha está faltando")
                 }
+
                 if (this.errors.length === 0) {
                     await axios
                         .post('/api/login/', this.form)
@@ -86,8 +88,11 @@
                         })
                         .catch(error => {
                             console.log('error', error)
+                            this.errors.push('O e-mail ou a senha está incorreta! Ou o usuário não está ativado!')
                         })
+                }
 
+                if (this.errors.length === 0) {
                     await axios
                         .get('/api/me/')
                         .then(response => {

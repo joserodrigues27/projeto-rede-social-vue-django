@@ -1,6 +1,6 @@
 <template>
     <div class="mb-6 flex items-center justify-between">
-        <div class="flex items-center space-x-6">
+        <div class="flex items-center space-x-4">
             <img src="https://i.pravatar.cc/150?img=12" class="w-10 rounded-full">
 
             <p>

@@ -10,7 +10,7 @@
                     <p class="text-xs"><strong>José Rodrigues</strong></p>
                 </div>
 
-                <a href="#" class="py-2 px-2 bg-blue-600 text-white text-xs rounded-lg">Mostrar</a>
+                <a href="#" class="p-2 bg-blue-600 text-white text-xs rounded-lg">Mostrar</a>
             </div>
 
             <div class="flex items-center justify-between">
@@ -20,7 +20,7 @@
                     <p class="text-xs"><strong>José Rodrigues</strong></p>
                 </div>
 
-                <a href="#" class="py-2 px-2 bg-blue-600 text-white text-xs rounded-lg">Mostrar</a>
+                <a href="#" class="p-2 bg-blue-600 text-white text-xs rounded-lg">Mostrar</a>
             </div>
 
             <div class="flex items-center justify-between">
@@ -30,7 +30,7 @@
                     <p class="text-xs"><strong>José Rodrigues</strong></p>
                 </div>
 
-                <a href="#" class="py-2 px-2 bg-blue-600 text-white text-xs rounded-lg">Mostrar</a>
+                <a href="#" class="p-2 bg-blue-600 text-white text-xs rounded-lg">Mostrar</a>
             </div>
         </div>
     </div>
